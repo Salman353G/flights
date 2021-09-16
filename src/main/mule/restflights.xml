@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="56e81e7a-6576-4eb3-85a9-3d58304fab7e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="b5b9916c-531d-43af-b92d-04716a184bb6" >
+		<http:request-connection host="mu.learn.mu.laern.com" />
+	</http:request-config>
+	<flow name="restflightsFlow" doc:id="e53717d2-7820-4049-9aaa-86ef32f9015d" >
+		<http:listener doc:name="Listener" doc:id="8cf4c342-cc2b-472e-844f-d5b2ba73ba7f" config-ref="HTTP_Listener_config" path="/flights"/>
+		<http:request method="GET" doc:name="Request" doc:id="d15b3dca-0c02-4ffe-85b9-b41d28d685a3" config-ref="HTTP_Request_configuration" path="/united/flights"/>
+		<logger level="INFO" doc:name="Logger" doc:id="57a11307-3fac-4f68-8f55-d67219959f54" message="#[payload]"/>
+	</flow>
+</mule>
