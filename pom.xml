@@ -29,6 +29,39 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<cloudHubDeployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+
+                        <muleVersion>4.3.0</muleVersion>
+
+                        <username>Maheer</username>
+
+                        <password>Kushi@353</password>
+
+                        <environment>Sandbox</environment>
+
+                        <applicationName>restflights}</applicationName>
+
+                        <businessGroup>Mulesoft</businessGroup>
+
+                        <workerType>micro</workerType>
+
+                        <workers>1</workers>
+
+                        <objectStoreV2>true</objectStoreV2>
+
+</cloudHubDeployment>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
